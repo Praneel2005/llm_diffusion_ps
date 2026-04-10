@@ -171,6 +171,22 @@ JSON:"""
         plan = _make_fallback_plan(caption, figure_type)
 
     # merge with original fig data
+    # Truncate sd_prompt to 60 words — CLIP max is 77 tokens
+    sd_prompt = plan.get("sd_prompt", "")
+    sd_words = sd_prompt.split()
+    if len(sd_words) > 60:
+        sd_prompt = " ".join(sd_words[:60])
+        print(f"  [Planner] Prompt truncated to 60 words for CLIP compatibility.")
+    plan["sd_prompt"] = sd_prompt
+
+    # Truncate sd_prompt to 60 words — CLIP max is 77 tokens
+    sd_prompt = plan.get("sd_prompt", "")
+    sd_words = sd_prompt.split()
+    if len(sd_words) > 60:
+        sd_prompt = " ".join(sd_words[:60])
+        print(f"  [Planner] Prompt truncated to 60 words for CLIP compatibility.")
+    plan["sd_prompt"] = sd_prompt
+
     result = {
         "id":          fig_id,
         "caption":     caption,
