@@ -368,8 +368,8 @@ def render_figure(fig_plan: dict, output_dir: str) -> dict:
 def _sanitize_plan(fig: dict) -> dict:
     """Fix bad entity labels before rendering."""
     BAD = ["paper2fig","test set","cfg","classifier-free",
-           "samples generated","figure ","fig.","caption",
-           "component name","baseline"]
+           "samples generated","generated samples","figure ","fig.",
+           "caption","component name","baseline","scale","score"]
     TYPE_DEFAULTS = {
         "architecture": ["Input","Encoder","Processor","Decoder","Output"],
         "flowchart":    ["Start","Process","Decision","Action","End"],
