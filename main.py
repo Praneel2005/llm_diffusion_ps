@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shared.pdf_parser       import parse_pdf, save_extracted
 from shared.figure_classifier import classify_figures
 from shared.prompt_planner   import plan_all_figures, save_planned
-from branch_a.figure_generator import run_branch_a
+from branch_a.diagram_renderer import run_renderer as run_branch_a
 from branch_b.video_generator  import run_branch_b
 
 
