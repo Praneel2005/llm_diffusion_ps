@@ -71,7 +71,6 @@ def run_full_pipeline(pdf_path: str):
         abstract=paper_data["abstract"],
         introduction=paper_data["introduction"],
         conclusion=paper_data["conclusion"],
-        generated_figures=generated_figures,
         output_dir=f"outputs/videos/{base_name}"
     )
 

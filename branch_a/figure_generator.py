@@ -11,10 +11,10 @@ from peft import PeftModel
 
 SDXL_MODEL_ID = "stabilityai/stable-diffusion-xl-base-1.0"
 LORA_WEIGHTS  = {
-    "architecture": "lora_weights/architecture/final",
-    "flowchart":    "lora_weights/flowchart/final",
-    "chart":        "lora_weights/chart/final",
-    "conceptual":   "lora_weights/conceptual/final",
+    "architecture": "lora_weights/architecture_final/final",
+    "flowchart":    "lora_weights/flowchart_final/final",
+    "chart":        "lora_weights/chart_final/final",
+    "conceptual":   "lora_weights/conceptual_final/final",
 }
 _pipelines = {}
 
