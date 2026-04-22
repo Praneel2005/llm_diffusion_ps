@@ -1,10 +1,10 @@
+# Ignore massive model weights and datasets
+models/
+data/raw_pdfs/
+data/paper2fig100k/
+diagrammergpt_repo/
 __pycache__/
 *.pyc
-data/
+.env
 outputs/
-lora_weights/
-*.mp4
-*.png
-*.pdf
-*.json
-venv/
+*.tar.gz
