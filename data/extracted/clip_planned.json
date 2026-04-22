@@ -1,0 +1,1269 @@
+[
+  {
+    "id": "fig_0",
+    "caption": "Figure 1 . Figure 1. Summary of our approach. While standard image models jointly train an image feature extractor and a linear classifier to predict some label, CLIP jointly trains an image encoder and a text encoder to predict the correct pairings of a batch of (image, text) training examples. At test time the learned text encoder synthesizes a zero-shot linear classifier by embedding the names or descriptions of the target dataset's classes.",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Image Encoder",
+        "bbox": [
+          15,
+          65,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Text Encoder",
+        "bbox": [
+          45,
+          65,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Image Feature Extractor",
+        "bbox": [
+          75,
+          65,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Linear Classifier",
+        "bbox": [
+          105,
+          65,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Zero-shot Linear Classifier",
+        "bbox": [
+          135,
+          85,
+          40,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background with a professional scientific diagram. The diagram consists of five components arranged from left to right: Image Encoder, Text Encoder, Image Feature Extractor, Linear Classifier, and Zero-shot Linear Classifier. Arrows connect each component to its adjacent ones, indicating the data flow between them. The components are labeled clearly and are drawn in a clean, minimalist style.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_2",
+    "caption": "Figure 2 Figure2. CLIP is much more efficient at zero-shot transfer than our image caption baseline. Although highly expressive, we found that transformer-based language models are relatively weak at zero-shot ImageNet classification. Here, we see that it learns 3x slower than a baseline which predicts a bag-of-words (BoW) encoding of the text (Joulin et al., 2016) . Swapping the prediction objective for the contrastive objective of CLIP further improves efficiency another 4x.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "CLIP",
+        "bbox": [
+          25,
+          15,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Image caption baseline",
+        "bbox": [
+          60,
+          15,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "BoW encoding",
+        "bbox": [
+          25,
+          40,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Contrastive objective",
+        "bbox": [
+          60,
+          40,
+          30,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E3",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background is used for this scientific diagram. The diagram is professionally styled and illustrates the efficiency of CLIP compared to an image caption baseline in zero-shot transfer tasks. The diagram includes four entities: CLIP, Image caption baseline, BoW encoding, and Contrastive objective. Arrows connect each entity with its relevant comparison or improvement.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_3",
+    "caption": "#Figure 3 . Figure 3. Numpy-like pseudocode for the core of an implementation of CLIP.",
+    "figure_type": "flowchart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input Array",
+        "bbox": [
+          15,
+          70,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Reshape",
+        "bbox": [
+          35,
+          60,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Split Axes",
+        "bbox": [
+          55,
+          50,
+          40,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Apply Functions",
+        "bbox": [
+          95,
+          50,
+          40,
+          20
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Concatenate Axes",
+        "bbox": [
+          95,
+          20,
+          40,
+          10
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Return Result",
+        "bbox": [
+          55,
+          20,
+          40,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      },
+      {
+        "from": "E4",
+        "to": "E5",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The diagram represents the core of an implementation of CLIP using Numpy-like pseudocode. Entities are labeled 'Input Array', 'Reshape', 'Split Axes', 'Apply Functions', 'Concatenate Axes', and 'Return Result'. Arrows connect each step in a top-to-bottom flow.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_4",
+    "caption": "Figure8. Zero-shot performance is correlated with linear probe performance but still mostly sub-optimal. Comparing zero-shot and linear probe performance across datasets shows a strong correlation with zero-shot performance mostly shifted 10 to 25 points lower. On only 5 datasets does zero-shot performance approach linear probe performance (≤3 point difference).",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Title",
+        "bbox": [
+          10,
+          10,
+          40,
+          8
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "X-axis label",
+        "bbox": [
+          50,
+          32,
+          20,
+          8
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Y-axis label",
+        "bbox": [
+          70,
+          32,
+          20,
+          8
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Data series 1 (Zero-shot)",
+        "bbox": [
+          15,
+          45,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Data series 2 (Linear probe)",
+        "bbox": [
+          50,
+          45,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Caption",
+        "bbox": [
+          10,
+          85,
+          80,
+          15
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "line"
+      }
+    ],
+    "sd_prompt": "Generate an image of a scientific diagram on a white background, featuring a professional title, x-axis and y-axis labels, two data series represented by bars (one for Zero-shot performance and one for Linear probe performance), and a caption summarizing the results. Ensure that the diagram is presented in a clear and easy-to-understand manner, with appropriate spacing between elements to prevent",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_5",
+    "caption": "Figure 9 . Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute. Across 39 evals on 36 different datasets, average zero-shot error is well modeled by a log-log linear trend across a 44x range of compute spanning 5 different CLIP models. Lightly shaded lines are performance on individual evals, showing that performance is much more varied despite the smooth overall trend.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input",
+        "bbox": [
+          10,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Process",
+        "bbox": [
+          40,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Output",
+        "bbox": [
+          70,
+          40,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A clean scientific chart diagram. Figure 9 . Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute. Across 39 evals on 36 different datasets, average zero-shot error is well modeled by a log-log linear tr. White background, professional research paper style, clear labels.",
+    "fallback_used": true
+  },
+  {
+    "id": "fig_7",
+    "caption": "use this finding to propose that robustness analysis should distinguish between effective and relative robustness. Effective robustness measures improvements in accuracy under distribution shift above what is predicted by the documented relationship between in-distribution and out-of-distribution accuracy. Relative robustness captures any improvement in out-of-distribution accuracy. Taori et al. (2020) argue that robustness techniques should aim to improve both effective robustness and relative robustness. Almost all models studied in Taori et al. (2020) are trained",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Robustness Analysis",
+        "bbox": [
+          20,
+          30,
+          40,
+          15
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Effective Robustness",
+        "bbox": [
+          70,
+          30,
+          30,
+          15
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Improvements in Accuracy under Distribution Shift",
+        "bbox": [
+          80,
+          45,
+          60,
+          15
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Relative Robustness",
+        "bbox": [
+          70,
+          55,
+          30,
+          15
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The main entity is 'Robustness Analysis' positioned at (20%,30%) with a width of 40% and height of 15%. 'Effective Robustness' is positioned at (70%,30%) with a width of 30% and height of 15%, connected to the main entity by an arrow. 'Improvements in Accuracy under Distribution Shift' is positioned at (80%,45%)",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_9",
+    "caption": "Figure 13 . Figure 13. Zero-shot CLIP is much more robust to distribution shift than standard ImageNet models. (Left) An ideal robust model (dashed line) performs equally well on the ImageNet distribution and on other natural image distributions. Zero-shot CLIP models shrink this \"robustness gap\" by up to 75%. Linear fits on logit transformed values are shown with bootstrap estimated 95% confidence intervals. (Right) Visualizing distribution shift for bananas, a class shared across 5 of the 7 natural distribution shift datasets. The performance of the best zero-shot CLIP model, ViT-L/14@336px, is compared with a model that has the same performance on the ImageNet validation set, ResNet-101.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Ideal Robust Model",
+        "bbox": [
+          10,
+          10,
+          25,
+          25
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Zero-shot CLIP Models",
+        "bbox": [
+          45,
+          10,
+          30,
+          25
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "ImageNet Distribution",
+        "bbox": [
+          70,
+          10,
+          20,
+          25
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Other Natural Image Distributions",
+        "bbox": [
+          90,
+          10,
+          20,
+          25
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E3",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background with a professional scientific diagram. The diagram illustrates the comparison of an ideal robust model and zero-shot CLIP models on ImageNet distribution and other natural image distributions. Arrows indicate connections between the concepts. The diagram is drawn in a clean, minimalist style to emphasize the relationships between the entities.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_10",
+    "caption": "distribution shift datasets (top-1, %)",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input",
+        "bbox": [
+          10,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Process",
+        "bbox": [
+          40,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Output",
+        "bbox": [
+          70,
+          40,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A clean scientific chart diagram. distribution shift datasets (top-1, %). White background, professional research paper style, clear labels.",
+    "fallback_used": true
+  },
+  {
+    "id": "fig_11",
+    "caption": "Figure 14 . Figure 14. While supervised adaptation to ImageNet increases ImageNet accuracy by 9.2%, it slightly reduces average robustness.(Left) Customizing zero-shot CLIP to each dataset improves robustness compared to using a single static zero-shot ImageNet classifier and pooling predictions across similar classes as in Taori et al. (2020) . CLIP models adapted to ImageNet have similar effective robustness as the best prior ImageNet models. (Right) Details of per dataset changes in accuracy for the two robustness interventions. Adapting to ImageNet increases accuracy on ImageNetV2 noticeably but trades off accuracy on several other distributions. Dataset specific zero-shot classifiers can improve accuracy by a large amount but are limited to only a few datasets that include classes which don't perfectly align with ImageNet categories.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Supervised Adaptation to ImageNet",
+        "bbox": [
+          15,
+          30,
+          40,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Increases ImageNet Accuracy",
+        "bbox": [
+          60,
+          30,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Reduces Average Robustness",
+        "bbox": [
+          95,
+          30,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Customizing Zero-shot CLIP",
+        "bbox": [
+          15,
+          60,
+          40,
+          10
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Improves Robustness",
+        "bbox": [
+          60,
+          60,
+          25,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background with a professional scientific diagram. The diagram illustrates the relationships between Supervised Adaptation to ImageNet, its impact on ImageNet Accuracy and Average Robustness, Customizing Zero-shot CLIP, and its effect on Robustness. Arrows connect each component to show their relationships. The diagram is presented in a clean, organized manner with clear labeling.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_12",
+    "caption": "Figure 15 . Figure15. Few-shot CLIP also increases effective robustness compared to existing ImageNet models but is less robust than zero-shot CLIP. Minimizing the amount of ImageNet training data used for adaption increases effective robustness at the cost of decreasing relative robustness. 16-shot logistic regression CLIP matches zero-shot CLIP on ImageNet, as previously reported in Figure7, but is less robust.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Few-shot CLIP",
+        "bbox": [
+          15,
+          15,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "ImageNet models",
+        "bbox": [
+          45,
+          15,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Zero-shot CLIP",
+        "bbox": [
+          75,
+          15,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Logistic regression CLIP",
+        "bbox": [
+          45,
+          45,
+          20,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The main components are labeled: Few-shot CLIP, ImageNet models, Zero-shot CLIP, and Logistic regression CLIP. Arrows connect the components to show their relationships.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_13",
+    "caption": "Figure 17 . Figure17. Few statistically significant improvements in accuracy due to detected data overlap. (Left) While several datasets have up to ±20% apparent differences in zero-shot accuracy on detected overlapping vs clean examples only 5 datasets out of 35 total have 99.5% Clopper-Pearson confidence intervals that exclude a 0% accuracy difference. 2 of these datasets do worse on overlapping data. (Right) Since the percentage of detected overlapping examples is almost always in the single digits, the overall test accuracy gain due to overlap is much smaller with the largest estimated increase being only 0.6% on Birdsnap. Similarly, for only 6 datasets are the accuracy improvements statistically significant when calculated using a one-sided binomial test.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input",
+        "bbox": [
+          10,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Process",
+        "bbox": [
+          40,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Output",
+        "bbox": [
+          70,
+          40,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A clean scientific chart diagram. Figure 17 . Figure17. Few statistically significant improvements in accuracy due to detected data overlap. (Left) While several datasets have up to ±20% apparent differences in zero-shot accuracy on d. White background, professional research paper style, clear labels.",
+    "fallback_used": true
+  },
+  {
+    "id": "fig_14",
+    "caption": "Figure 19 . Figure 19. Two example images from the Rendered SST2 dataset",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Data Input",
+        "bbox": [
+          10,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Preprocessing",
+        "bbox": [
+          35,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Feature Extraction",
+        "bbox": [
+          60,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Model Training",
+        "bbox": [
+          85,
+          75,
+          20,
+          15
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Prediction",
+        "bbox": [
+          85,
+          60,
+          20,
+          15
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Evaluation",
+        "bbox": [
+          85,
+          45,
+          20,
+          15
+        ]
+      },
+      {
+        "id": "E6",
+        "label": "Data Output",
+        "bbox": [
+          85,
+          30,
+          20,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      },
+      {
+        "from": "E4",
+        "to": "E5",
+        "type": "arrow"
+      },
+      {
+        "from": "E5",
+        "to": "E6",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The components are arranged left-to-right and top-to-bottom, starting from the data input on the far left at the top, flowing downwards through preprocessing, feature extraction, model training, prediction, evaluation, and ending with the data output on the far right at the bottom.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_16",
+    "caption": "Figure 20 . Figure20. Linear probe performance plotted for each of the 27 datasets, using the data from Table10.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Linear probe performance",
+        "bbox": [
+          10,
+          85,
+          40,
+          12
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Datasets",
+        "bbox": [
+          60,
+          75,
+          30,
+          12
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "X-axis label",
+        "bbox": [
+          10,
+          65,
+          40,
+          12
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Y-axis label",
+        "bbox": [
+          60,
+          65,
+          30,
+          12
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E2",
+        "to": "E4",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E5",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A scientific diagram on a white background, displaying a professional line graph with the title 'Linear probe performance' at the top (y=85, x=10, width=40, height=12). Below it, the x-axis label is positioned at (x=10, y=65, width=40, height=12). To the right of the x-axis label, the y-axis label is placed at (x=60, y=65, width=30, height=12). The data series for 27 datasets",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_17",
+    "caption": "photo of a \"red and white triangle with exclamation mark warning\" traffic sign. a zoomed in photo of a \"red and white triangle with black right curve approaching warning\" traffic sign. a zoomed in photo of a \"red and white triangle car skidding / slipping warning\" traffic sign. a zoomed in photo of a \"red and white triangle rough / bumpy road warning\" traffic sign. a zoomed in photo of a \"red and white triangle with black left curve approaching warning\" traffic sign.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Red and White Triangle Warning Sign",
+        "bbox": [
+          10,
+          10,
+          25,
+          25
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Approaching Curve (Right)",
+        "bbox": [
+          40,
+          30,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Car Skidding / Slipping",
+        "bbox": [
+          65,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Rough / Bumpy Road",
+        "bbox": [
+          90,
+          50,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Approaching Curve (Left)",
+        "bbox": [
+          10,
+          60,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E4",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E3",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A scientific diagram on a white background, featuring five professional-style images of traffic warning signs. The signs are arranged in a row, with the red and white triangle sign at the center. To its left, there is a right-curve approaching warning sign, a car skidding/slipping warning sign, and a rough/bumpy road warning sign. To its right, there is a left-curve",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_18",
+    "caption": "a marimba. a photo of a abacus. a photo of a steel drum. a photo of a computer keyboard. a photo of a pool table.",
+    "figure_type": "conceptual",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Marimba",
+        "bbox": [
+          10,
+          20,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Abacus",
+        "bbox": [
+          45,
+          20,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Steel Drum",
+        "bbox": [
+          75,
+          20,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Computer Keyboard",
+        "bbox": [
+          10,
+          60,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Pool Table",
+        "bbox": [
+          75,
+          60,
+          30,
+          30
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "horizontal_arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "horizontal_arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "horizontal_arrow"
+      }
+    ],
+    "sd_prompt": "Generate a scientific conceptual diagram on a white background. The diagram should illustrate an abstract comparison between a marimba, abacus, steel drum, computer keyboard, and pool table in a professional style. Arrange the entities in two rows with equal spacing between them. Use arrows to connect each adjacent pair of concepts horizontally. Ensure that the entities do not overlap and",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_19",
+    "caption": "Food101Figure 21 . Figure 21. Visualization of predictions from 36 CLIP zero-shot classifiers. All examples are random with the exception of reselecting Hateful Memes to avoid offensive content. The predicted probability of the top 5 classes is shown along with the text used to represent the class. When more than one template is used, the first template is shown. The ground truth label is colored green while an incorrect prediction is colored orange.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Title",
+        "bbox": [
+          10,
+          10,
+          50,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "X-axis label",
+        "bbox": [
+          60,
+          30,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Y-axis label",
+        "bbox": [
+          85,
+          30,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Data series 1",
+        "bbox": [
+          10,
+          60,
+          25,
+          40
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Data series 2",
+        "bbox": [
+          35,
+          60,
+          25,
+          40
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Data series 3",
+        "bbox": [
+          60,
+          60,
+          25,
+          40
+        ]
+      },
+      {
+        "id": "E6",
+        "label": "Data series 4",
+        "bbox": [
+          85,
+          60,
+          25,
+          40
+        ]
+      },
+      {
+        "id": "E7",
+        "label": "Legend",
+        "bbox": [
+          10,
+          100,
+          50,
+          30
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E7",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "line"
+      }
+    ],
+    "sd_prompt": "A white background is used for a professional and clean appearance. The diagram is designed in a scientific style, featuring a title, x-axis label, y-axis label, and four data series represented by bars. A legend is included to distinguish between the different data series. The overall layout ensures that all elements are clearly visible and non-overlapping.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_20",
+    "caption": "Figure 22 . Figure 22. CLIP's zero-shot performance compared to linear-probe ResNet performance",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Title",
+        "bbox": [
+          10,
+          10,
+          60,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "X-axis label",
+        "bbox": [
+          35,
+          40,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Y-axis label",
+        "bbox": [
+          75,
+          40,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "CLIP's zero-shot performance",
+        "bbox": [
+          35,
+          60,
+          30,
+          30
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Linear-probe ResNet performance",
+        "bbox": [
+          70,
+          60,
+          30,
+          30
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "Generate a white background scientific diagram in a professional style. The diagram should display the title 'Figure 22 . Figure 22. CLIP's zero-shot performance compared to linear-probe ResNet performance'. Below the title, place the x-axis label and y-axis label. On the left side of the y-axis, represent CLIP's zero-shot performance with bars or lines, and on the right side, represent",
+    "fallback_used": false
+  }
+]

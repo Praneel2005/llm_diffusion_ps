@@ -10,3 +10,5 @@ outputs/
 *.tar.gz
 lora_weights/
 venv/
+*.jsonl
+data/extracted/

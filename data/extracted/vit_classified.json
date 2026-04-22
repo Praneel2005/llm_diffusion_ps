@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fig_0",
+    "caption": "Figure 1 : Figure 1: Model overview. We split an image into fixed-size patches, linearly embed each of them, add position embeddings, and feed the resulting sequence of vectors to a standard Transformer encoder. In order to perform classification, we use the standard approach of adding an extra learnable \"classification token\" to the sequence. The illustration of the Transformer encoder was inspired by Vaswani et al. (2017).",
+    "figure_type": "architecture"
+  },
+  {
+    "id": "fig_1",
+    "caption": "Figure 2 : Figure 2: Breakdown of VTAB performance in Natural, Specialized, and Structured task groups.",
+    "figure_type": "chart"
+  },
+  {
+    "id": "fig_3",
+    "caption": "Figure 5 : Figure 5: Performance versus pre-training compute for different architectures: Vision Transformers, ResNets, and hybrids. Vision Transformers generally outperform ResNets with the same computational budget. Hybrids improve upon pure Transformers for smaller model sizes, but the gap vanishes for larger models.",
+    "figure_type": "architecture"
+  },
+  {
+    "id": "fig_4",
+    "caption": "Figure 6 : Figure 6: Representative examples of attention from the output token to the input space. See Appendix D.7 for details.",
+    "figure_type": "architecture"
+  },
+  {
+    "id": "fig_6",
+    "caption": "Figure 7 : Figure 7: Left: Filters of the initial linear embedding of RGB values of ViT-L/32. Center: Similarity of position embeddings of ViT-L/32. Tiles show the cosine similarity between the position embedding of the patch with the indicated row and column and the position embeddings of all other patches. Right: Size of attended area by head and network depth. Each dot shows the mean attention distance across images for one of 16 heads at one layer. See Appendix D.7 for details.",
+    "figure_type": "architecture"
+  },
+  {
+    "id": "fig_7",
+    "caption": "Figure 5 Figure 10 : Figure5from the paper and shows the transfer performance of ViT, ResNet, and hybrid models of varying size, as well as the estimated computational cost of their pre-training.",
+    "figure_type": "architecture"
+  },
+  {
+    "id": "fig_9",
+    "caption": "Figure 11 : Figure11: Size of attended area by head and network depth. Attention distance was computed for 128 example images by averaging the distance between the query pixel and all other pixels, weighted by the attention weight. Each dot shows the mean attention distance across images for one of 16 heads at one layer. Image width is 224 pixels.",
+    "figure_type": "chart"
+  },
+  {
+    "id": "fig_10",
+    "caption": "Figure 14 : Figure 14: Further example attention maps as in Figure 6 (random selection).",
+    "figure_type": "architecture"
+  }
+]

@@ -1,0 +1,595 @@
+[
+  {
+    "id": "fig_0",
+    "caption": "Figure 1 : Figure 1: Model overview. We split an image into fixed-size patches, linearly embed each of them, add position embeddings, and feed the resulting sequence of vectors to a standard Transformer encoder. In order to perform classification, we use the standard approach of adding an extra learnable \"classification token\" to the sequence. The illustration of the Transformer encoder was inspired by Vaswani et al. (2017).",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Image Splitter",
+        "bbox": [
+          15,
+          65,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Linear Embedder",
+        "bbox": [
+          45,
+          65,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Position Embeddings",
+        "bbox": [
+          75,
+          65,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Transformer Encoder",
+        "bbox": [
+          105,
+          45,
+          35,
+          35
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Classification Token",
+        "bbox": [
+          145,
+          65,
+          20,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The diagram represents an image processing pipeline for classification tasks. The components are arranged from left to right: Image Splitter, Linear Embedder, Position Embeddings, Transformer Encoder, and Classification Token. Arrows indicate the data flow between components.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_1",
+    "caption": "Figure 2 : Figure 2: Breakdown of VTAB performance in Natural, Specialized, and Structured task groups.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input",
+        "bbox": [
+          10,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Process",
+        "bbox": [
+          40,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Output",
+        "bbox": [
+          70,
+          40,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A clean scientific chart diagram. Figure 2 : Figure 2: Breakdown of VTAB performance in Natural, Specialized, and Structured task groups.. White background, professional research paper style, clear labels.",
+    "fallback_used": true
+  },
+  {
+    "id": "fig_3",
+    "caption": "Figure 5 : Figure 5: Performance versus pre-training compute for different architectures: Vision Transformers, ResNets, and hybrids. Vision Transformers generally outperform ResNets with the same computational budget. Hybrids improve upon pure Transformers for smaller model sizes, but the gap vanishes for larger models.",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Vision Transformers",
+        "bbox": [
+          15,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "ResNets",
+        "bbox": [
+          45,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Hybrids",
+        "bbox": [
+          75,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Performance",
+        "bbox": [
+          15,
+          65,
+          40,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E3",
+        "to": "E0",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background is used for a clean and professional appearance. The diagram represents a scientific comparison of different architectures in the field of computer vision. It includes three main components: Vision Transformers, ResNets, and Hybrids, arranged from left to right in a top-to-bottom layout. An arrow points from Performance at the top to each component, indicating the data flow",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_4",
+    "caption": "Figure 6 : Figure 6: Representative examples of attention from the output token to the input space. See Appendix D.7 for details.",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input Space",
+        "bbox": [
+          15,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Output Token",
+        "bbox": [
+          75,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Attention Mechanism",
+        "bbox": [
+          35,
+          65,
+          30,
+          15
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Processing Unit",
+        "bbox": [
+          5,
+          45,
+          25,
+          15
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Data Flow",
+        "bbox": [
+          90,
+          65,
+          10,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E3",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E0",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E4",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E4",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "Generate a white background scientific diagram in a professional style. The diagram should represent a pipeline of components related to attention mechanisms in a machine learning model. The Input Space is located at the far left, followed by the Processing Unit, Attention Mechanism, Output Token, and Data Flow arrows connecting them in a logical flow from left to right. Ensure",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_6",
+    "caption": "Figure 7 : Figure 7: Left: Filters of the initial linear embedding of RGB values of ViT-L/32. Center: Similarity of position embeddings of ViT-L/32. Tiles show the cosine similarity between the position embedding of the patch with the indicated row and column and the position embeddings of all other patches. Right: Size of attended area by head and network depth. Each dot shows the mean attention distance across images for one of 16 heads at one layer. See Appendix D.7 for details.",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Filters of the initial linear embedding of RGB values of ViT-L/32",
+        "bbox": [
+          10,
+          50,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Similarity of position embeddings of ViT-L/32",
+        "bbox": [
+          40,
+          50,
+          30,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Tiles show the cosine similarity between the position embedding",
+        "bbox": [
+          70,
+          50,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Size of attended area by head and network depth",
+        "bbox": [
+          10,
+          80,
+          40,
+          10
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background is used for a clean and professional appearance. The diagram represents a scientific illustration of a network architecture, with each component neatly arranged in a left-to-right fashion. The first component, 'Filters of the initial linear embedding of RGB values of ViT-L/32', is positioned at the far left (10%, 50%). The second component, 'Similarity of position embeddings of",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_7",
+    "caption": "Figure 5 Figure 10 : Figure5from the paper and shows the transfer performance of ViT, ResNet, and hybrid models of varying size, as well as the estimated computational cost of their pre-training.",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Input",
+        "bbox": [
+          10,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Process",
+        "bbox": [
+          40,
+          40,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Output",
+        "bbox": [
+          70,
+          40,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A clean scientific architecture diagram. Figure 5 Figure 10 : Figure5from the paper and shows the transfer performance of ViT, ResNet, and hybrid models of varying size, as well as the estimated computational cost of their pre-training.. White background, professional research paper style, clear labels.",
+    "fallback_used": true
+  },
+  {
+    "id": "fig_9",
+    "caption": "Figure 11 : Figure11: Size of attended area by head and network depth. Attention distance was computed for 128 example images by averaging the distance between the query pixel and all other pixels, weighted by the attention weight. Each dot shows the mean attention distance across images for one of 16 heads at one layer. Image width is 224 pixels.",
+    "figure_type": "chart",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Title",
+        "bbox": [
+          10,
+          10,
+          50,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "X-axis label",
+        "bbox": [
+          60,
+          30,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Y-axis label",
+        "bbox": [
+          85,
+          30,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Data series 1",
+        "bbox": [
+          10,
+          50,
+          20,
+          40
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Data series 2",
+        "bbox": [
+          35,
+          50,
+          20,
+          40
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Data series 3",
+        "bbox": [
+          60,
+          50,
+          20,
+          40
+        ]
+      },
+      {
+        "id": "E6",
+        "label": "Data series 4",
+        "bbox": [
+          85,
+          50,
+          20,
+          40
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E0",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "line"
+      },
+      {
+        "from": "E5",
+        "to": "E6",
+        "type": "line"
+      }
+    ],
+    "sd_prompt": "A white background is used for a professional and clean appearance. The diagram features a title, x-axis label, y-axis label, and four data series represented by bars. This scientific diagram follows a minimalist style to emphasize the data and maintain clarity.",
+    "fallback_used": false
+  },
+  {
+    "id": "fig_10",
+    "caption": "Figure 14 : Figure 14: Further example attention maps as in Figure 6 (random selection).",
+    "figure_type": "architecture",
+    "entities": [
+      {
+        "id": "E0",
+        "label": "Data Source",
+        "bbox": [
+          10,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E1",
+        "label": "Preprocessing",
+        "bbox": [
+          35,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E2",
+        "label": "Feature Extraction",
+        "bbox": [
+          60,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E3",
+        "label": "Attention Maps",
+        "bbox": [
+          85,
+          85,
+          20,
+          10
+        ]
+      },
+      {
+        "id": "E4",
+        "label": "Analysis",
+        "bbox": [
+          110,
+          75,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "E5",
+        "label": "Results",
+        "bbox": [
+          110,
+          55,
+          20,
+          20
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "E0",
+        "to": "E1",
+        "type": "arrow"
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "type": "arrow"
+      },
+      {
+        "from": "E2",
+        "to": "E3",
+        "type": "arrow"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "type": "arrow"
+      },
+      {
+        "from": "E4",
+        "to": "E5",
+        "type": "arrow"
+      }
+    ],
+    "sd_prompt": "A white background, scientific diagram in a professional style. The components are arranged left-to-right and top-to-bottom: Data Source, Preprocessing, Feature Extraction, Attention Maps, Analysis, Results. Arrows indicate the data flow between each component.",
+    "fallback_used": false
+  }
+]

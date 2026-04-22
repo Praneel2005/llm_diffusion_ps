@@ -1,0 +1,76 @@
+{
+  "abstract": "State-of-the-art computer vision systems are trained to predict a fixed set of predetermined object categories. This restricted form of supervision limits their generality and usability since additional labeled data is needed to specify any other visual concept. Learning directly from raw text about images is a promising alternative which leverages a much broader source of supervision. We demonstrate that the simple pre-training task of predicting which caption goes with which image is an efficient and scalable way to learn SOTA image representations from scratch on a dataset of 400 million (image, text) pairs collected from the internet. After pre-training, natural language is used to reference learned visual concepts (or describe new ones) enabling zero-shot transfer of the model to downstream tasks. We study the performance of this approach by benchmarking on over 30 different existing computer vision datasets, spanning tasks such as OCR, action recognition in videos, geo-localization, and many types of fine-grained object classification. The model transfers non-trivially to most tasks and is often competitive with a fully supervised baseline without the need for any dataset specific training. For instance, we match the accuracy of the original ResNet-50 on ImageNet zero-shot without needing to use any of the 1.28 million training examples it was trained on. We release our code and pre-trained model weights at https://github.com/OpenAI/CLIP.",
+  "introduction": "Introduction and Motivating Work Pre-training methods which learn directly from raw text have revolutionized NLP over the last few years  (Dai & Le, 2015; Peters et al., 2018; Howard & Ruder, 2018; Radford et al., 2018; Devlin et al., 2018; Raffel et al., 2019) . Task-agnostic objectives such as autoregressive and masked language modeling have scaled across many orders of magnitude in compute, model capacity, and data, steadily improving capabilities. The development of \"text-to-text\" as a standardized input-output interface  (McCann et al., 2018; Radford et al., 2019; Raffel et al., 2019)  has enabled taskagnostic architectures to zero-shot transfer to downstream datasets removing the need for specialized output heads or dataset specific customization. Flagship systems like GPT-3  (Brown et al., 2020 ) are now competitive across many tasks with bespoke models while requiring little to no dataset specific training data. These results suggest that the aggregate supervision accessible to modern pre-training methods within web-scale collections of text surpasses that of high-quality crowd-labeled NLP datasets. However, in other fields such as computer vision it is still standard practice to pre-train models on crowd-labeled datasets such as ImageNet  (Deng et al., 2009) . Could scalable pre-training methods which learn directly from web text result in a similar breakthrough in computer vision? Prior work is encouraging. Over 20 years ago  Mori et al. (1999)  explored improving content based image retrieval by training a model to predict the nouns and adjectives in text documents paired with images.  Quattoni et al. (2007)  demonstrated it was possible to learn more data efficient image representations via manifold learning in the weight space of classifiers trained to predict words in captions associated with images.  Srivastava & Salakhutdinov (2012)  explored deep representation learning by training multimodal Deep Boltzmann Machines on top of low-level image and text tag features.  Joulin et al. (2016)  modernized this line of work and demonstrated that CNNs trained to predict words in image captions learn useful image representations. They converted the title, description, and hashtag metadata of images in the YFCC100M dataset  (Thomee et al., 2016)  into a bag-ofwords multi-label classification task and showed that pretraining AlexNet  (Krizhevsky et al., 2012)  to predict these labels learned representations which preformed similarly to ImageNet-based pre-training on transfer tasks.  Li et al. (2017)  then extended this approach to predicting phrase ngrams in addition to individual words and demonstrated the ability of their system to zero-shot transfer to other image classification datasets by scoring target classes based on their dictionary of learned visual n-grams and predicting the one with the highest score. Adopting more recent architectures and pre-training approaches, VirTex  (Desai & Johnson, 2020) , ICMLM  (Bulent Sariyildiz et al.,",
+  "conclusion": "Conclusion We have investigated whether it is possible to transfer the success of task-agnostic web-scale pre-training in NLP to another domain. We find that adopting this formula results in similar behaviors emerging in the field of computer vision and discuss the social implications of this line of research. In order to optimize their training objective, CLIP models learn to perform a wide variety of tasks during pretraining. This task learning can then be leveraged via natural language prompting to enable zero-shot transfer to many existing datasets. At sufficient scale, the performance of this approach can be competitive with task-specific supervised models although there is still room for much improvement.",
+  "figures": [
+    {
+      "id": "fig_0",
+      "caption": "Figure 1 . Figure 1. Summary of our approach. While standard image models jointly train an image feature extractor and a linear classifier to predict some label, CLIP jointly trains an image encoder and a text encoder to predict the correct pairings of a batch of (image, text) training examples. At test time the learned text encoder synthesizes a zero-shot linear classifier by embedding the names or descriptions of the target dataset's classes."
+    },
+    {
+      "id": "fig_2",
+      "caption": "Figure 2 Figure2. CLIP is much more efficient at zero-shot transfer than our image caption baseline. Although highly expressive, we found that transformer-based language models are relatively weak at zero-shot ImageNet classification. Here, we see that it learns 3x slower than a baseline which predicts a bag-of-words (BoW) encoding of the text (Joulin et al., 2016) . Swapping the prediction objective for the contrastive objective of CLIP further improves efficiency another 4x."
+    },
+    {
+      "id": "fig_3",
+      "caption": "#Figure 3 . Figure 3. Numpy-like pseudocode for the core of an implementation of CLIP."
+    },
+    {
+      "id": "fig_4",
+      "caption": "Figure8. Zero-shot performance is correlated with linear probe performance but still mostly sub-optimal. Comparing zero-shot and linear probe performance across datasets shows a strong correlation with zero-shot performance mostly shifted 10 to 25 points lower. On only 5 datasets does zero-shot performance approach linear probe performance (≤3 point difference)."
+    },
+    {
+      "id": "fig_5",
+      "caption": "Figure 9 . Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute. Across 39 evals on 36 different datasets, average zero-shot error is well modeled by a log-log linear trend across a 44x range of compute spanning 5 different CLIP models. Lightly shaded lines are performance on individual evals, showing that performance is much more varied despite the smooth overall trend."
+    },
+    {
+      "id": "fig_7",
+      "caption": "use this finding to propose that robustness analysis should distinguish between effective and relative robustness. Effective robustness measures improvements in accuracy under distribution shift above what is predicted by the documented relationship between in-distribution and out-of-distribution accuracy. Relative robustness captures any improvement in out-of-distribution accuracy. Taori et al. (2020) argue that robustness techniques should aim to improve both effective robustness and relative robustness. Almost all models studied in Taori et al. (2020) are trained"
+    },
+    {
+      "id": "fig_9",
+      "caption": "Figure 13 . Figure 13. Zero-shot CLIP is much more robust to distribution shift than standard ImageNet models. (Left) An ideal robust model (dashed line) performs equally well on the ImageNet distribution and on other natural image distributions. Zero-shot CLIP models shrink this \"robustness gap\" by up to 75%. Linear fits on logit transformed values are shown with bootstrap estimated 95% confidence intervals. (Right) Visualizing distribution shift for bananas, a class shared across 5 of the 7 natural distribution shift datasets. The performance of the best zero-shot CLIP model, ViT-L/14@336px, is compared with a model that has the same performance on the ImageNet validation set, ResNet-101."
+    },
+    {
+      "id": "fig_10",
+      "caption": "distribution shift datasets (top-1, %)"
+    },
+    {
+      "id": "fig_11",
+      "caption": "Figure 14 . Figure 14. While supervised adaptation to ImageNet increases ImageNet accuracy by 9.2%, it slightly reduces average robustness.(Left) Customizing zero-shot CLIP to each dataset improves robustness compared to using a single static zero-shot ImageNet classifier and pooling predictions across similar classes as in Taori et al. (2020) . CLIP models adapted to ImageNet have similar effective robustness as the best prior ImageNet models. (Right) Details of per dataset changes in accuracy for the two robustness interventions. Adapting to ImageNet increases accuracy on ImageNetV2 noticeably but trades off accuracy on several other distributions. Dataset specific zero-shot classifiers can improve accuracy by a large amount but are limited to only a few datasets that include classes which don't perfectly align with ImageNet categories."
+    },
+    {
+      "id": "fig_12",
+      "caption": "Figure 15 . Figure15. Few-shot CLIP also increases effective robustness compared to existing ImageNet models but is less robust than zero-shot CLIP. Minimizing the amount of ImageNet training data used for adaption increases effective robustness at the cost of decreasing relative robustness. 16-shot logistic regression CLIP matches zero-shot CLIP on ImageNet, as previously reported in Figure7, but is less robust."
+    },
+    {
+      "id": "fig_13",
+      "caption": "Figure 17 . Figure17. Few statistically significant improvements in accuracy due to detected data overlap. (Left) While several datasets have up to ±20% apparent differences in zero-shot accuracy on detected overlapping vs clean examples only 5 datasets out of 35 total have 99.5% Clopper-Pearson confidence intervals that exclude a 0% accuracy difference. 2 of these datasets do worse on overlapping data. (Right) Since the percentage of detected overlapping examples is almost always in the single digits, the overall test accuracy gain due to overlap is much smaller with the largest estimated increase being only 0.6% on Birdsnap. Similarly, for only 6 datasets are the accuracy improvements statistically significant when calculated using a one-sided binomial test."
+    },
+    {
+      "id": "fig_14",
+      "caption": "Figure 19 . Figure 19. Two example images from the Rendered SST2 dataset"
+    },
+    {
+      "id": "fig_16",
+      "caption": "Figure 20 . Figure20. Linear probe performance plotted for each of the 27 datasets, using the data from Table10."
+    },
+    {
+      "id": "fig_17",
+      "caption": "photo of a \"red and white triangle with exclamation mark warning\" traffic sign. a zoomed in photo of a \"red and white triangle with black right curve approaching warning\" traffic sign. a zoomed in photo of a \"red and white triangle car skidding / slipping warning\" traffic sign. a zoomed in photo of a \"red and white triangle rough / bumpy road warning\" traffic sign. a zoomed in photo of a \"red and white triangle with black left curve approaching warning\" traffic sign."
+    },
+    {
+      "id": "fig_18",
+      "caption": "a marimba. a photo of a abacus. a photo of a steel drum. a photo of a computer keyboard. a photo of a pool table."
+    },
+    {
+      "id": "fig_19",
+      "caption": "Food101Figure 21 . Figure 21. Visualization of predictions from 36 CLIP zero-shot classifiers. All examples are random with the exception of reselecting Hateful Memes to avoid offensive content. The predicted probability of the top 5 classes is shown along with the text used to represent the class. When more than one template is used, the first template is shown. The ground truth label is colored green while an incorrect prediction is colored orange."
+    },
+    {
+      "id": "fig_20",
+      "caption": "Figure 22 . Figure 22. CLIP's zero-shot performance compared to linear-probe ResNet performance"
+    }
+  ],
+  "tables_skipped": 14
+}
